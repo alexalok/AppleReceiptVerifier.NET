@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net5.0;netstandard2.0</TargetFrameworks>
+    <LangVersion>9.0</LangVersion>
+    <Nullable>enable</Nullable>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <Copyright>Copyright © alexalok 2019-2020</Copyright>
+    <Description>AppleReceiptVerifier.NET is the library used to validate purchase and subscription receipts with the Apple App Store.</Description>
+    <Company>alexalok</Company>
+    <Authors>alexalok</Authors>
+    <Version>0.0.2</Version>
+    <PackageTags>App Store, in-app purchase, in-app subscription, verify receipt</PackageTags>
+    <RepositoryUrl>https://github.com/alexalok/AppleReceiptVerifier.NET</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageProjectUrl>https://github.com/alexalok/AppleReceiptVerifier.NET</PackageProjectUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Http" Version="2.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="2.2.0" /> <!-- OptionsBuilder<TOptions>.Validate appeared in 2.2.0 -->
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="2.1.0" /> <!-- OptionsBuilderConfigurationExtensions.Bind appeared in 2.1.0 -->
+    <PackageReference Include="System.Text.Json" Version="4.6.0" />
+  </ItemGroup>
+
+  <!-- disable the nullable warnings when compiling for .NET Standard 2.0 -->
+  <PropertyGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+    <NoWarn>$(NoWarn);8600;8601;8602;8603;8604</NoWarn>
+  </PropertyGroup>
+
+</Project>

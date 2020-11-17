@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30621.155
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppleReceiptVerifier.NET", "AppleReceiptVerifier.NET\AppleReceiptVerifier.NET.csproj", "{4C04CFA7-8863-4513-8F87-BA6F37D6DAF9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppleReceiptVerifier.NET.Tests", "AppleReceiptVerifier.NET.Tests\AppleReceiptVerifier.NET.Tests.csproj", "{49FFA3ED-9A2F-4385-B851-8B6D98A70F01}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4C04CFA7-8863-4513-8F87-BA6F37D6DAF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C04CFA7-8863-4513-8F87-BA6F37D6DAF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C04CFA7-8863-4513-8F87-BA6F37D6DAF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C04CFA7-8863-4513-8F87-BA6F37D6DAF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49FFA3ED-9A2F-4385-B851-8B6D98A70F01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49FFA3ED-9A2F-4385-B851-8B6D98A70F01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49FFA3ED-9A2F-4385-B851-8B6D98A70F01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49FFA3ED-9A2F-4385-B851-8B6D98A70F01}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9ADFAF9A-A017-4234-B1C9-BD2F272A21F5}
+	EndGlobalSection
+EndGlobal
