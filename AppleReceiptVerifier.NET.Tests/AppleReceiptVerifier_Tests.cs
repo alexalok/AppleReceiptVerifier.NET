@@ -10,8 +10,10 @@ namespace AppleReceiptVerifier.NET.Tests
 {
     public class AppleReceiptVerifier_Tests : BaseTestsClass
     {
-        [Fact]
-        public async Task VerifyReceiptAsync_Fallbacks_To_Test_Environment()
+        [Theory]
+        [InlineData(true, true)]
+        [InlineData(false, false)]
+        public async Task VerifyReceiptAsync_Fallbacks_To_Test_Environment_Only_When_Explicitly_Set(bool isTestEnvEnabled, bool expectedReceiptValidity)
         {
             var httpHandlerMock = new Mock<HttpMessageHandler>(MockBehavior.Strict);
             httpHandlerMock.Protected()
@@ -27,15 +29,16 @@ namespace AppleReceiptVerifier.NET.Tests
             var httpClient = new HttpClient(httpHandlerMock.Object);
             var options = new OptionsWrapper<AppleReceiptVerifierOptions>(new AppleReceiptVerifierOptions()
             {
-                AppPassword = "test_app_password"
+                AppPassword = "test_app_password",
+                AcceptTestEnvironmentReceipts = isTestEnvEnabled
             });
             var verifier = new AppleReceiptVerifier(options, httpClient);
 
             var receipt = await verifier.VerifyReceiptAsync("test_receipt_data", true);
 
-            Assert.True(receipt.IsValid);
+            Assert.Equal(expectedReceiptValidity, receipt.IsValid);
             httpHandlerMock.Protected()
-                .Verify<Task<HttpResponseMessage>>("SendAsync", Times.Exactly(2), ItExpr.IsAny<HttpRequestMessage>(), ItExpr.IsAny<CancellationToken>());
+                .Verify<Task<HttpResponseMessage>>("SendAsync", Times.Exactly(isTestEnvEnabled ? 2 : 1), ItExpr.IsAny<HttpRequestMessage>(), ItExpr.IsAny<CancellationToken>());
         }
     }
 }

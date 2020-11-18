@@ -29,7 +29,7 @@ namespace AppleReceiptVerifier.NET
             var requestObj = new VerifyReceiptRequest(receiptData, Options.AppPassword, excludeOldTransactions);
             string requestJson = JsonSerializer.Serialize(requestObj);
             var verifiedReceipt = await VerifyReceiptInternalAsync(AppleReceiptVerifierOptions.ProductionEnvironmentUrl, requestJson).ConfigureAwait(false);
-            if ((KnownStatusCodes) verifiedReceipt.Status == KnownStatusCodes.ReceiptIsFromTestEnvironment)
+            if ((KnownStatusCodes) verifiedReceipt.Status == KnownStatusCodes.ReceiptIsFromTestEnvironment && Options.AcceptTestEnvironmentReceipts)
                 verifiedReceipt = await VerifyReceiptInternalAsync(AppleReceiptVerifierOptions.TestEnvironmentUrl, requestJson).ConfigureAwait(false);
             return verifiedReceipt;
         }
