@@ -28,7 +28,7 @@ namespace AppleReceiptVerifier.NET
         /// Get an error description. Use if <see cref="Status"/> != 0.
         /// Click <a href="https://developer.apple.com/documentation/appstorereceipts/status">here</a> for reference.
         /// </summary>
-        public string GetErrorDescription() => Status switch
+        public string ErrorDescription => Status switch
         {
             0 => "No error.",
             21000 => "The request to the App Store was not made using the HTTP POST request method.",
