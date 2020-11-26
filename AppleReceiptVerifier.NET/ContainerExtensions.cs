@@ -61,7 +61,7 @@ namespace AppleReceiptVerifier.NET
             else
             {
                 services.AddHttpClient(AppleReceiptVerifierOptions.ServicesPrefix + name);
-                services.TryAddSingleton<IAppleReceiptVerifierResolver, AppleReceiptVerifierResolver>();
+                services.TryAddScoped<IAppleReceiptVerifierResolver, AppleReceiptVerifierResolver>(); // don't use Singleton here or else we'd exhaust HttpClients' pool
             }
 
             return services;
