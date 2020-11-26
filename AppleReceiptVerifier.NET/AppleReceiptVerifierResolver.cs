@@ -26,7 +26,7 @@ namespace AppleReceiptVerifier.NET
             if (verifierName == AppleReceiptVerifierOptions.DefaultVerifierName)
                 throw new InvalidOperationException("Resolver can only be used when registering service implementations with non-default names.");
             verifierName = AppleReceiptVerifierOptions.ServicesPrefix + verifierName;
-            var namedOptionsResolver = _services.GetRequiredService<IOptionsMonitor<AppleReceiptVerifierOptions>>();
+            var namedOptionsResolver = _services.GetRequiredService<IOptionsSnapshot<AppleReceiptVerifierOptions>>();
             var namedOptions = namedOptionsResolver.Get(verifierName);
             var options = Options.Create<AppleReceiptVerifierOptions>(namedOptions);
             var httpClient = _httpClientFactory.CreateClient(verifierName);
