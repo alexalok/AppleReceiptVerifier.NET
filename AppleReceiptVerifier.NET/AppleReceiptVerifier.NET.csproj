@@ -4,24 +4,28 @@
     <TargetFrameworks>net5.0;netstandard2.0</TargetFrameworks>
     <LangVersion>9.0</LangVersion>
     <Nullable>enable</Nullable>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+  </PropertyGroup>
+
+  <PropertyGroup>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <Copyright>Copyright © alexalok 2019-2020</Copyright>
     <Description>AppleReceiptVerifier.NET is the library used to validate purchase and subscription receipts with the Apple App Store.</Description>
     <Company>alexalok</Company>
     <Authors>alexalok</Authors>
-    <Version>0.1.0</Version>
+    <Version>0.1.1</Version>
     <PackageReleaseNotes>
-      * Big rework
+      * Included documentation alongside the binary.
     </PackageReleaseNotes>
     <PackageTags>App Store, in-app purchase, in-app subscription, verify receipt</PackageTags>
     <RepositoryUrl>https://github.com/alexalok/AppleReceiptVerifier.NET</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageProjectUrl>https://github.com/alexalok/AppleReceiptVerifier.NET</PackageProjectUrl>
   </PropertyGroup>
-
+  
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Http" Version="2.1.0" />
     <PackageReference Include="Microsoft.Extensions.Options" Version="2.2.0" /> <!-- OptionsBuilder<TOptions>.Validate appeared in 2.2.0 -->
