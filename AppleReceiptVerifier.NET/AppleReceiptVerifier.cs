@@ -2,7 +2,11 @@
 using System.Diagnostics;
 using System.Net.Http;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using AppleReceiptVerifier.NET.Models;
+using AppleReceiptVerifier.NET.Modules.System.Net.Http;
+using AppleReceiptVerifier.NET.Modules.System.Text.Json;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
@@ -10,11 +14,23 @@ namespace AppleReceiptVerifier.NET
 {
     public interface IAppleReceiptVerifier
     {
-        Task<VerifiedReceipt> VerifyReceiptAsync(string receiptData, bool excludeOldTransactions = false);
+        /// <summary>
+        /// Send a receipt to the App Store for verification.
+        /// </summary>
+        /// <param name="receiptData">The Base64-encoded receipt data.</param>
+        /// <param name="excludeOldTransactions">Set this value to <b>true</b> for the response to include only the latest renewal transaction for any subscriptions. Default: <b>false</b>.</param>
+        Task<VerifyReceiptResponse> VerifyReceiptAsync(string receiptData, bool excludeOldTransactions = false);
     }
 
     public class AppleReceiptVerifier : IAppleReceiptVerifier
     {
+        static readonly JsonSerializerOptions JsonSerializerOptions = new JsonSerializerOptions()
+        {
+            PropertyNamingPolicy = new JsonSnakeCaseNamingPolicy(),
+            PropertyNameCaseInsensitive = true,
+            Converters = { new QuotedConverter(), new JsonStringEnumConverter(), new TimestampToDateTimeOffsetConverter() }
+        };
+
         internal readonly AppleReceiptVerifierOptions Options;
         readonly HttpClient _httpClient;
 
@@ -24,7 +40,7 @@ namespace AppleReceiptVerifier.NET
             _httpClient = httpClient;
         }
 
-        public async Task<VerifiedReceipt> VerifyReceiptAsync(string receiptData, bool excludeOldTransactions = false)
+        public async Task<VerifyReceiptResponse> VerifyReceiptAsync(string receiptData, bool excludeOldTransactions = false)
         {
             var requestObj = new VerifyReceiptRequest(receiptData, Options.AppPassword, excludeOldTransactions);
             string requestJson = JsonSerializer.Serialize(requestObj);
@@ -34,15 +50,20 @@ namespace AppleReceiptVerifier.NET
             return verifiedReceipt;
         }
 
-        async Task<VerifiedReceipt> VerifyReceiptInternalAsync(string environmentUrl, string requestBodyJson)
+        async Task<VerifyReceiptResponse> VerifyReceiptInternalAsync(string environmentUrl, string requestBodyJson)
         {
             var req = new HttpRequestMessage(HttpMethod.Post, environmentUrl);
             req.Content = new JsonContent(requestBodyJson);
-            string? rawResp = await (await _httpClient.SendAsync(req).ConfigureAwait(false))
+            string rawResp = await (await _httpClient.SendAsync(req).ConfigureAwait(false))
                 .Content.ReadAsStringAsync()
                 .ConfigureAwait(false);
-            var verifiedReceipt = VerifiedReceipt.DeserializeJson(rawResp);
+            var verifiedReceipt = DeserializeResponse(rawResp);
             return verifiedReceipt;
+        }
+
+        internal static VerifyReceiptResponse DeserializeResponse(string rawJson)
+        {
+            return JsonSerializer.Deserialize<VerifyReceiptResponse>(rawJson, JsonSerializerOptions)!;
         }
     }
 }

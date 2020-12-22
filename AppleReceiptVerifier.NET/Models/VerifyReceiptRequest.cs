@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text.Json.Serialization;
 
-namespace AppleReceiptVerifier.NET
+namespace AppleReceiptVerifier.NET.Models
 {
     class VerifyReceiptRequest
     {

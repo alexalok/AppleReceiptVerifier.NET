@@ -1,4 +1,5 @@
 ﻿using System;
+using AppleReceiptVerifier.NET.Extensions;
 using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 
@@ -24,8 +25,8 @@ namespace AppleReceiptVerifier.NET.Tests
             var provider = services.BuildServiceProvider();
             var resolver = provider.GetRequiredService<IAppleReceiptVerifierResolver>();
 
-            var verifier1 = resolver.Resolve("name1");
-            var verifier2 = resolver.Resolve("name2");
+            AppleReceiptVerifier verifier1 = (AppleReceiptVerifier) resolver.Resolve("name1");
+            AppleReceiptVerifier verifier2 = (AppleReceiptVerifier) resolver.Resolve("name2");
 
             Assert.Equal("test_password_1", verifier1.Options.AppPassword);
             Assert.Equal("test_password_2", verifier2.Options.AppPassword);

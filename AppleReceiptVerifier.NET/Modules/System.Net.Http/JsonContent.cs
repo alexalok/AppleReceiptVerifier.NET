@@ -1,7 +1,7 @@
 ﻿using System.Net.Http;
 using System.Text;
 
-namespace AppleReceiptVerifier.NET
+namespace AppleReceiptVerifier.NET.Modules.System.Net.Http
 {
     class JsonContent : StringContent
     {

@@ -4,7 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Options;
 
-namespace AppleReceiptVerifier.NET
+namespace AppleReceiptVerifier.NET.Extensions
 {
     public static class ContainerExtensions
     {
@@ -13,7 +13,7 @@ namespace AppleReceiptVerifier.NET
             if (configSection == null)
                 throw new ArgumentNullException(nameof(configSection));
 
-            return AddAppleReceiptVerifier(services, configSection, AppleReceiptVerifierOptions.DefaultVerifierName);
+            return services.AddAppleReceiptVerifier(configSection, AppleReceiptVerifierOptions.DefaultVerifierName);
         }
 
         public static IServiceCollection AddAppleReceiptVerifier(this IServiceCollection services, IConfigurationSection configSection, string name)
@@ -21,7 +21,7 @@ namespace AppleReceiptVerifier.NET
             if (configSection == null)
                 throw new ArgumentNullException(nameof(configSection));
 
-            return AddAppleReceiptVerifier(services, configSection, null, name);
+            return services.AddAppleReceiptVerifier(configSection, null, name);
         }
 
         public static IServiceCollection AddAppleReceiptVerifier(this IServiceCollection services, Action<AppleReceiptVerifierOptions> configure)
@@ -29,7 +29,7 @@ namespace AppleReceiptVerifier.NET
             if (configure == null)
                 throw new ArgumentNullException(nameof(configure));
 
-            return AddAppleReceiptVerifier(services, configure, AppleReceiptVerifierOptions.DefaultVerifierName);
+            return services.AddAppleReceiptVerifier(configure, AppleReceiptVerifierOptions.DefaultVerifierName);
         }
 
         public static IServiceCollection AddAppleReceiptVerifier(this IServiceCollection services, Action<AppleReceiptVerifierOptions> configure, string name)
@@ -37,7 +37,7 @@ namespace AppleReceiptVerifier.NET
             if (configure == null)
                 throw new ArgumentNullException(nameof(configure));
 
-            return AddAppleReceiptVerifier(services, null, configure, name);
+            return services.AddAppleReceiptVerifier(null, configure, name);
         }
 
         public static IServiceCollection AddAppleReceiptVerifier(this IServiceCollection services, IConfigurationSection? configSection, Action<AppleReceiptVerifierOptions>? configure, string name = AppleReceiptVerifierOptions.DefaultVerifierName)
@@ -55,9 +55,7 @@ namespace AppleReceiptVerifier.NET
                 $"{nameof(AppleReceiptVerifierOptions.AppPassword)} must have a non-empty value.");
 
             if (isDefaultName)
-            {
                 services.AddHttpClient<IAppleReceiptVerifier, AppleReceiptVerifier>();
-            }
             else
             {
                 services.AddHttpClient(AppleReceiptVerifierOptions.ServicesPrefix + name);
