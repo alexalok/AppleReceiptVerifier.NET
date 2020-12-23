@@ -1,0 +1,94 @@
+﻿{
+  "environment": "Production",
+  "receipt": {
+    "receipt_type": "Production",
+    "adam_id": 123,
+    "app_item_id": 123,
+    "bundle_id": "com.test.app",
+    "application_version": "2.5.0.7",
+    "download_id": null,
+    "version_external_identifier": 837591391,
+    "receipt_creation_date": "2020-12-16 06:48:51 Etc/GMT",
+    "receipt_creation_date_ms": "1608101331000",
+    "receipt_creation_date_pst": "2020-12-15 22:48:51 America/Los_Angeles",
+    "request_date": "2020-12-23 12:49:29 Etc/GMT",
+    "request_date_ms": "1608727769979",
+    "request_date_pst": "2020-12-23 04:49:29 America/Los_Angeles",
+    "original_purchase_date": "2020-12-16 06:48:51 Etc/GMT",
+    "original_purchase_date_ms": "1608101331000",
+    "original_purchase_date_pst": "2020-12-15 22:48:51 America/Los_Angeles",
+    "original_application_version": "2.5.0.7",
+    "in_app": [
+      {
+        "quantity": "1",
+        "product_id": "com.test.app.week",
+        "transaction_id": "120000933546577",
+        "original_transaction_id": "120000931683041",
+        "purchase_date": "2020-12-11 22:47:25 Etc/GMT",
+        "purchase_date_ms": "1607726845000",
+        "purchase_date_pst": "2020-12-11 14:47:25 America/Los_Angeles",
+        "original_purchase_date": "2020-12-08 22:47:25 Etc/GMT",
+        "original_purchase_date_ms": "1607467645000",
+        "original_purchase_date_pst": "2020-12-08 14:47:25 America/Los_Angeles",
+        "expires_date": "2020-12-18 22:47:25 Etc/GMT",
+        "expires_date_ms": "1608331645000",
+        "expires_date_pst": "2020-12-18 14:47:25 America/Los_Angeles",
+        "web_order_line_item_id": "120000369852394",
+        "is_trial_period": "false",
+        "is_in_intro_offer_period": "false",
+        "in_app_ownership_type": "PURCHASED"
+      },
+      {
+        "quantity": "1",
+        "product_id": "com.test.app.week",
+        "transaction_id": "120000931683041",
+        "original_transaction_id": "120000931683041",
+        "purchase_date": "2020-12-08 22:47:25 Etc/GMT",
+        "purchase_date_ms": "1607467645000",
+        "purchase_date_pst": "2020-12-08 14:47:25 America/Los_Angeles",
+        "original_purchase_date": "2020-12-08 22:47:25 Etc/GMT",
+        "original_purchase_date_ms": "1607467645000",
+        "original_purchase_date_pst": "2020-12-08 14:47:25 America/Los_Angeles",
+        "expires_date": "2020-12-11 22:47:25 Etc/GMT",
+        "expires_date_ms": "1607726845000",
+        "expires_date_pst": "2020-12-11 14:47:25 America/Los_Angeles",
+        "web_order_line_item_id": "120000369852393",
+        "is_trial_period": "true",
+        "is_in_intro_offer_period": "false",
+        "in_app_ownership_type": "PURCHASED"
+      }
+    ]
+  },
+  "latest_receipt_info": [
+    {
+      "quantity": "1",
+      "product_id": "com.test.app.week",
+      "transaction_id": "120000938859451",
+      "original_transaction_id": "120000931683041",
+      "purchase_date": "2020-12-18 22:47:25 Etc/GMT",
+      "purchase_date_ms": "1608331645000",
+      "purchase_date_pst": "2020-12-18 14:47:25 America/Los_Angeles",
+      "original_purchase_date": "2020-12-08 22:47:25 Etc/GMT",
+      "original_purchase_date_ms": "1607467645000",
+      "original_purchase_date_pst": "2020-12-08 14:47:25 America/Los_Angeles",
+      "expires_date": "2020-12-25 22:47:25 Etc/GMT",
+      "expires_date_ms": "1608936445000",
+      "expires_date_pst": "2020-12-25 14:47:25 America/Los_Angeles",
+      "web_order_line_item_id": "120000370924715",
+      "is_trial_period": "false",
+      "is_in_intro_offer_period": "false",
+      "in_app_ownership_type": "PURCHASED",
+      "subscription_group_identifier": "20621425"
+    }
+  ],
+  "latest_receipt": "[[REDACTED]]",
+  "pending_renewal_info": [
+    {
+      "auto_renew_product_id": "com.test.app.week",
+      "original_transaction_id": "120000931683041",
+      "product_id": "com.test.app.week",
+      "auto_renew_status": "1"
+    }
+  ],
+  "status": 0
+}

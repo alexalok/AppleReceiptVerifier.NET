@@ -26,7 +26,7 @@ namespace AppleReceiptVerifier.NET.Models
     /// <param name="RequestDate">The time the request to the <i>verifyReceipt</i> endpoint was processed and the response was generated.</param>
     /// <param name="VersionExternalIdentifier">An arbitrary number that identifies a revision of your app. In the sandbox, this key's value is <b>0</b>.</param>
     public record Receipt(long AdamId, long AppItemId, string ApplicationVersion, string BundleId,
-        long DownloadId, DateTimeOffset? ExpirationDate, InApp[] InApp, string OriginalApplicationVersion,
+        long? DownloadId, DateTimeOffset? ExpirationDate, InApp[] InApp, string OriginalApplicationVersion,
         DateTimeOffset OriginalPurchaseDate, DateTimeOffset? PreorderDate, DateTimeOffset ReceiptCreationDate, string ReceiptType,
         DateTimeOffset RequestDate, int VersionExternalIdentifier);
 
