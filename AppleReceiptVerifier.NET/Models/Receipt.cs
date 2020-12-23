@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AppleReceiptVerifier.NET.Models
+namespace AppleReceiptVerifierNET.Models
 {
     /// <summary>
     /// The decoded version of the encoded receipt data sent with the request to the App Store.

@@ -1,4 +1,4 @@
-﻿namespace AppleReceiptVerifier.NET.Models
+﻿namespace AppleReceiptVerifierNET.Models
 {
     public enum KnownStatusCodes
     {

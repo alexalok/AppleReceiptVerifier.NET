@@ -1,12 +1,12 @@
 using System;
 using System.Collections.Generic;
-using AppleReceiptVerifier.NET.Extensions;
+using AppleReceiptVerifierNET.Extensions;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Xunit;
 
-namespace AppleReceiptVerifier.NET.Tests
+namespace AppleReceiptVerifierNET.Tests
 {
     public class ContainerExtensions_Tests
     {

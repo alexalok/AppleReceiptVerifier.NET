@@ -4,7 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Options;
 
-namespace AppleReceiptVerifier.NET.Extensions
+namespace AppleReceiptVerifierNET.Extensions
 {
     public static class ContainerExtensions
     {

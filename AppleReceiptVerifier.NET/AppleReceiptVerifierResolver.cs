@@ -4,7 +4,7 @@ using System.Net.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 
-namespace AppleReceiptVerifier.NET
+namespace AppleReceiptVerifierNET
 {
     public interface IAppleReceiptVerifierResolver
     {

@@ -1,4 +1,4 @@
-﻿namespace AppleReceiptVerifier.NET
+﻿namespace AppleReceiptVerifierNET
 {
     public class AppleReceiptVerifierOptions
     {

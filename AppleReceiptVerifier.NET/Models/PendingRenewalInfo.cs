@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AppleReceiptVerifier.NET.Models
+namespace AppleReceiptVerifierNET.Models
 {
     /// <summary>
     /// Auto-renewable subscription renewal that is open or failed in the past. <a href="https://developer.apple.com/documentation/appstorereceipts/responsebody/pending_renewal_info">(docs)</a>

@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System.Runtime.CompilerServices;
 
-namespace AppleReceiptVerifier.NET.Tests
+namespace AppleReceiptVerifierNET.Tests
 {
     public abstract class BaseTestsClass
     {

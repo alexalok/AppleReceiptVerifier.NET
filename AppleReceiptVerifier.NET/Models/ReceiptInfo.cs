@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text.Json.Serialization;
 
-namespace AppleReceiptVerifier.NET.Models
+namespace AppleReceiptVerifierNET.Models
 {
     /// <summary>
     /// In-app purchase transaction. <a href="https://developer.apple.com/documentation/appstorereceipts/responsebody/latest_receipt_info">(docs)</a>

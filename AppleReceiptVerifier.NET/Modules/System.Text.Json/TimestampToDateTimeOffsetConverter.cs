@@ -6,7 +6,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace AppleReceiptVerifier.NET.Modules.System.Text.Json
+namespace AppleReceiptVerifierNET.Modules.System.Text.Json
 {
     class TimestampToDateTimeOffsetConverter : JsonConverter<DateTimeOffset>
     {

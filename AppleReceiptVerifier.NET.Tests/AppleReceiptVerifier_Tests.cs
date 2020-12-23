@@ -3,13 +3,13 @@ using System.Linq;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
-using AppleReceiptVerifier.NET.Models;
+using AppleReceiptVerifierNET.Models;
 using Microsoft.Extensions.Options;
 using Moq;
 using Moq.Protected;
 using Xunit;
 
-namespace AppleReceiptVerifier.NET.Tests
+namespace AppleReceiptVerifierNET.Tests
 {
     public class AppleReceiptVerifier_Tests : BaseTestsClass
     {

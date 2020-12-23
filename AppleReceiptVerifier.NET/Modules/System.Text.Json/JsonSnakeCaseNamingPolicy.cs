@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace AppleReceiptVerifier.NET.Modules.System.Text.Json
+namespace AppleReceiptVerifierNET.Modules.System.Text.Json
 {
     // Taken from https://github.com/dotnet/runtime/pull/42009/
     class JsonSnakeCaseNamingPolicy : JsonSeparatedCaseNamingPolicy

@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Text.Json;
 using Xunit;
 
-namespace AppleReceiptVerifier.NET.Tests
+namespace AppleReceiptVerifierNET.Tests
 {
     public class VerifiedReceipt_Tests : BaseTestsClass
     {

@@ -1,9 +1,9 @@
 ﻿using System;
-using AppleReceiptVerifier.NET.Extensions;
+using AppleReceiptVerifierNET.Extensions;
 using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 
-namespace AppleReceiptVerifier.NET.Tests
+namespace AppleReceiptVerifierNET.Tests
 {
     public class AppleReceiptVerifierResolver_Tests
     {

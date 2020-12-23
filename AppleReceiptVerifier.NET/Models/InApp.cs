@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AppleReceiptVerifier.NET.Models
+namespace AppleReceiptVerifierNET.Models
 {
     /// <summary>
     /// In-app purchase receipt fields. <a href="https://developer.apple.com/documentation/appstorereceipts/responsebody/receipt/in_app">(docs)</a>

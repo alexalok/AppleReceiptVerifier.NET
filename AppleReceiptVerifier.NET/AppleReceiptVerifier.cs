@@ -4,13 +4,13 @@ using System.Net.Http;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-using AppleReceiptVerifier.NET.Models;
-using AppleReceiptVerifier.NET.Modules.System.Net.Http;
-using AppleReceiptVerifier.NET.Modules.System.Text.Json;
+using AppleReceiptVerifierNET.Models;
+using AppleReceiptVerifierNET.Modules.System.Net.Http;
+using AppleReceiptVerifierNET.Modules.System.Text.Json;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
-namespace AppleReceiptVerifier.NET
+namespace AppleReceiptVerifierNET
 {
     public interface IAppleReceiptVerifier
     {
