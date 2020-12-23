@@ -88,5 +88,16 @@ namespace AppleReceiptVerifier.NET.Tests
             Assert.False(receipt.IsValid);
             Assert.Equal(KnownStatusCodes.MalformedReceiptData, (KnownStatusCodes) receipt.Status);
         }
+
+        [Fact]
+        public void DeserializeResponse_Valid_Sandbox_Multiple_Purchases()
+        {
+            string json = GetVerifiedReceiptJson("Valid_Sandbox_Consumable_And_Active_Subscription_Excluding_Old_Transactions");
+
+            var receipt = AppleReceiptVerifier.DeserializeResponse(json);
+
+            Assert.True(receipt.IsValid);
+            Assert.Equal(KnownStatusCodes.Valid, (KnownStatusCodes) receipt.Status);
+        }
     }
 }

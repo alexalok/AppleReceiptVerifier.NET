@@ -30,6 +30,10 @@ namespace AppleReceiptVerifier.NET.Modules.System.Text.Json
                 if (reader.TokenType == JsonTokenType.String)
                 {
                     string stringValue = reader.GetString()!; // else how would we know it's a string anyway?
+                    if (typeToConvert == typeof(bool) && int.TryParse(stringValue, out int intValue) && (intValue is 0 or 1))
+                    {
+                        return (T) (object) (intValue == 1);
+                    }
                     return (T) TypeDescriptor.GetConverter(typeof(T)).ConvertFromString(stringValue);
                 }
                 if (reader.TokenType == JsonTokenType.Number)
