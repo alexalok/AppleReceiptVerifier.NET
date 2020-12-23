@@ -4,8 +4,8 @@
     {
         public const string ProductionEnvironmentUrl = "https://buy.itunes.apple.com/verifyReceipt";
         public const string TestEnvironmentUrl = "https://sandbox.itunes.apple.com/verifyReceipt";
-        public const string DefaultVerifierName = "DefaultVerifier";
-        public const string ServicesPrefix = nameof(AppleReceiptVerifier) + "_";
+        internal const string DefaultVerifierName = "DefaultVerifier";
+        internal const string ServicesPrefix = nameof(AppleReceiptVerifier) + "_";
 
         public string AppPassword { get; set; } = null!;
 
