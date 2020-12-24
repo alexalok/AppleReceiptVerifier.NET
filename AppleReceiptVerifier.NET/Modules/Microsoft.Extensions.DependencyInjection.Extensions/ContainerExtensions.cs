@@ -1,10 +1,8 @@
 ﻿using System;
+using AppleReceiptVerifierNET;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.DependencyInjection.Extensions;
-using Microsoft.Extensions.Options;
 
-namespace AppleReceiptVerifierNET.Extensions
+namespace Microsoft.Extensions.DependencyInjection.Extensions
 {
     public static class ContainerExtensions
     {
@@ -46,7 +44,7 @@ namespace AppleReceiptVerifierNET.Extensions
                 throw new InvalidOperationException($"At least {nameof(configSection)} or {nameof(configure)} must be provided.");
 
             bool isDefaultName = name == AppleReceiptVerifierOptions.DefaultVerifierName;
-            var optionsBuilder = services.AddOptions<AppleReceiptVerifierOptions>(isDefaultName ? Options.DefaultName : AppleReceiptVerifierOptions.ServicesPrefix + name);
+            var optionsBuilder = services.AddOptions<AppleReceiptVerifierOptions>(isDefaultName ? Options.Options.DefaultName : AppleReceiptVerifierOptions.ServicesPrefix + name);
             if (configSection != null)
                 optionsBuilder.Bind(configSection); // first config
             if (configure != null)

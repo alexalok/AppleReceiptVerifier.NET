@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using AppleReceiptVerifierNET.Extensions;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Options;
 using Xunit;
 
