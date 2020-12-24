@@ -40,6 +40,12 @@ namespace AppleReceiptVerifierNET
             _httpClient = httpClient;
         }
 
+        public AppleReceiptVerifier(AppleReceiptVerifierOptions options, HttpClient httpClient)
+        {
+            Options = options;
+            _httpClient = httpClient;
+        }
+
         public async Task<VerifyReceiptResponse> VerifyReceiptAsync(string receiptData, bool excludeOldTransactions = false)
         {
             var requestObj = new VerifyReceiptRequest(receiptData, Options.AppPassword, excludeOldTransactions);
