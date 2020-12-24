@@ -4,6 +4,7 @@ using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using AppleReceiptVerifierNET.Models;
 using AppleReceiptVerifierNET.Modules.System.Text.Json;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 
 namespace AppleReceiptVerifierNET
@@ -30,6 +31,7 @@ namespace AppleReceiptVerifierNET
         internal readonly AppleReceiptVerifierOptions Options;
         readonly HttpClient _httpClient;
 
+        [ActivatorUtilitiesConstructor]
         public AppleReceiptVerifier(IOptions<AppleReceiptVerifierOptions> options, HttpClient httpClient)
         {
             Options = options.Value;

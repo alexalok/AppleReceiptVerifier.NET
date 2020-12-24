@@ -87,5 +87,17 @@ namespace AppleReceiptVerifierNET.Tests
 
             Assert.NotNull(resolver);
         }
+
+        [Fact]
+        public void Single_Verifier_Resolves()
+        {
+            var services = new ServiceCollection();
+            services.AddAppleReceiptVerifier(c => c.AppSecret = "test_password");
+            var provider = services.BuildServiceProvider();
+
+            var verifier = provider.GetService<IAppleReceiptVerifier>();
+
+            Assert.IsType<AppleReceiptVerifier>(verifier);
+        }
     }
 }
