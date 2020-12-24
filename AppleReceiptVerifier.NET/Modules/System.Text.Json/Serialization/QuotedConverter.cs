@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Text.Json;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
+﻿using System.ComponentModel;
 
-namespace AppleReceiptVerifierNET.Modules.System.Text.Json
+namespace System.Text.Json.Serialization
 {
     class QuotedConverter : JsonConverterFactory
     {

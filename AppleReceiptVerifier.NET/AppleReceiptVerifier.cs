@@ -1,13 +1,9 @@
-﻿using System;
-using System.Diagnostics;
-using System.Net.Http;
+﻿using System.Net.Http;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using AppleReceiptVerifierNET.Models;
-using AppleReceiptVerifierNET.Modules.System.Net.Http;
 using AppleReceiptVerifierNET.Modules.System.Text.Json;
-using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
 namespace AppleReceiptVerifierNET

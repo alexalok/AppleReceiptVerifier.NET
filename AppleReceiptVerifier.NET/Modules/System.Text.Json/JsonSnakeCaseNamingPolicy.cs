@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
 
-namespace AppleReceiptVerifierNET.Modules.System.Text.Json
+namespace AppleReceiptVerifierNET.Modules.System.Text.Json // preserve namespace here because future .NET versions might include this very class and conflict with ours
 {
     // Taken from https://github.com/dotnet/runtime/pull/42009/
     class JsonSnakeCaseNamingPolicy : JsonSeparatedCaseNamingPolicy

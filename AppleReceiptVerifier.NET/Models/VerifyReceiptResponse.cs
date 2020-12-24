@@ -1,11 +1,4 @@
-﻿using AppleReceiptVerifierNET.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AppleReceiptVerifierNET.Models
+﻿namespace AppleReceiptVerifierNET.Models
 {
     /// <summary>
     /// The data returned in the response from the App Store.
