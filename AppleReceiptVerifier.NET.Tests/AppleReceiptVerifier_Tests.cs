@@ -32,7 +32,7 @@ namespace AppleReceiptVerifierNET.Tests
             var httpClient = new HttpClient(httpHandlerMock.Object);
             var options = new OptionsWrapper<AppleReceiptVerifierOptions>(new AppleReceiptVerifierOptions()
             {
-                AppPassword = "test_app_password",
+                AppSecret = "test_app_password",
                 AcceptTestEnvironmentReceipts = isTestEnvEnabled
             });
             var verifier = new AppleReceiptVerifier(options, httpClient);

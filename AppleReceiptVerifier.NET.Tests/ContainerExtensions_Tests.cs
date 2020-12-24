@@ -17,7 +17,7 @@ namespace AppleReceiptVerifierNET.Tests
         {
             var srv = new ServiceCollection();
             var configSection = new ConfigurationBuilder()
-                .AddInMemoryCollection(new[] { new KeyValuePair<string, string>($"{nameof(AppleReceiptVerifierOptions)}:{nameof(AppleReceiptVerifierOptions.AppPassword)}", TestAppPassword), })
+                .AddInMemoryCollection(new[] { new KeyValuePair<string, string>($"{nameof(AppleReceiptVerifierOptions)}:{nameof(AppleReceiptVerifierOptions.AppSecret)}", TestAppPassword), })
                 .Build()
                 .GetSection(nameof(AppleReceiptVerifierOptions));
 
@@ -25,7 +25,7 @@ namespace AppleReceiptVerifierNET.Tests
             var provider = srv.BuildServiceProvider();
 
             var options = provider.GetRequiredService<IOptions<AppleReceiptVerifierOptions>>();
-            Assert.Equal(TestAppPassword, options.Value.AppPassword);
+            Assert.Equal(TestAppPassword, options.Value.AppSecret);
         }
 
         [Fact]
@@ -33,11 +33,11 @@ namespace AppleReceiptVerifierNET.Tests
         {
             var srv = new ServiceCollection();
 
-            srv.AddAppleReceiptVerifier(c => c.AppPassword = "test_app_password");
+            srv.AddAppleReceiptVerifier(c => c.AppSecret = "test_app_password");
             var provider = srv.BuildServiceProvider();
 
             var options = provider.GetRequiredService<IOptions<AppleReceiptVerifierOptions>>();
-            Assert.Equal(TestAppPassword, options.Value.AppPassword);
+            Assert.Equal(TestAppPassword, options.Value.AppSecret);
         }
 
         [Fact]
@@ -57,7 +57,7 @@ namespace AppleReceiptVerifierNET.Tests
         {
             var srv = new ServiceCollection();
 
-            srv.AddAppleReceiptVerifier(c => c.AppPassword = invalidAppPassword);
+            srv.AddAppleReceiptVerifier(c => c.AppSecret = invalidAppPassword);
             var provider = srv.BuildServiceProvider();
 
             Assert.Throws<OptionsValidationException>(() => provider.GetRequiredService<IOptions<AppleReceiptVerifierOptions>>().Value);
@@ -67,7 +67,7 @@ namespace AppleReceiptVerifierNET.Tests
         public void Adding_Single_Default_Implementation_Does_Not_Add_Resolver()
         {
             var services = new ServiceCollection();
-            services.AddAppleReceiptVerifier(c => c.AppPassword = "test_password");
+            services.AddAppleReceiptVerifier(c => c.AppSecret = "test_password");
             var provider = services.BuildServiceProvider();
 
             var resolver = provider.GetService<IAppleReceiptVerifierResolver>();
@@ -79,8 +79,8 @@ namespace AppleReceiptVerifierNET.Tests
         public void Adding_Multiple_Implementations_Adds_Resolver()
         {
             var services = new ServiceCollection();
-            services.AddAppleReceiptVerifier(c => c.AppPassword = "test_password", "name1");
-            services.AddAppleReceiptVerifier(c => c.AppPassword = "test_password", "name2");
+            services.AddAppleReceiptVerifier(c => c.AppSecret = "test_password", "name1");
+            services.AddAppleReceiptVerifier(c => c.AppSecret = "test_password", "name2");
             var provider = services.BuildServiceProvider();
 
             var resolver = provider.GetService<IAppleReceiptVerifierResolver>();

@@ -51,8 +51,8 @@ namespace AppleReceiptVerifierNET.Extensions
                 optionsBuilder.Bind(configSection); // first config
             if (configure != null)
                 optionsBuilder.Configure(configure); // then explicit options
-            optionsBuilder.Validate(o => !string.IsNullOrWhiteSpace(o.AppPassword),
-                $"{nameof(AppleReceiptVerifierOptions.AppPassword)} must have a non-empty value.");
+            optionsBuilder.Validate(o => !string.IsNullOrWhiteSpace(o.AppSecret),
+                $"{nameof(AppleReceiptVerifierOptions.AppSecret)} must have a non-empty value.");
 
             if (isDefaultName)
                 services.AddHttpClient<IAppleReceiptVerifier, AppleReceiptVerifier>();

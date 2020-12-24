@@ -48,7 +48,7 @@ namespace AppleReceiptVerifierNET
 
         public async Task<VerifyReceiptResponse> VerifyReceiptAsync(string receiptData, bool excludeOldTransactions = false)
         {
-            var requestObj = new VerifyReceiptRequest(receiptData, Options.AppPassword, excludeOldTransactions);
+            var requestObj = new VerifyReceiptRequest(receiptData, Options.AppSecret, excludeOldTransactions);
             string requestJson = JsonSerializer.Serialize(requestObj);
             var verifiedReceipt = await VerifyReceiptInternalAsync(AppleReceiptVerifierOptions.ProductionEnvironmentUrl, requestJson).ConfigureAwait(false);
             if ((KnownStatusCodes) verifiedReceipt.Status == KnownStatusCodes.ReceiptIsFromTestEnvironment && Options.AcceptTestEnvironmentReceipts)

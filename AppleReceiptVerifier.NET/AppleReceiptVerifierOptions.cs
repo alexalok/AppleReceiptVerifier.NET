@@ -7,7 +7,7 @@
         internal const string DefaultVerifierName = "DefaultVerifier";
         internal const string ServicesPrefix = nameof(AppleReceiptVerifier) + "_";
 
-        public string AppPassword { get; set; } = null!;
+        public string AppSecret { get; set; } = null!;
 
         /// <summary>
         /// Indicates whether the verifier should check the receipts with the test environment server.
