@@ -25,7 +25,7 @@ namespace AppleReceiptVerifierNET.Models
     /// The value is usually <b>1</b> unless modified with a mutable payment. The maximum value is <b>10</b>.</param>
     /// <param name="TransactionId">A unique identifier for a transaction such as a purchase, restore, or renewal. <a href="https://developer.apple.com/documentation/appstorereceipts/transaction_id">(docs)</a></param>
     /// <param name="WebOrderLineItemId">A unique identifier for purchase events across devices, including subscription-renewal events. This value is the primary key for identifying subscription purchases.</param>
-    public record InApp(DateTimeOffset? CancellationDate, CancellationReason? CancellationReason, DateTimeOffset ExpiresDate,
+    public record InApp(DateTimeOffset? CancellationDate, CancellationReason? CancellationReason, DateTimeOffset? ExpiresDate,
         bool IsInIntroOfferPeriod, bool IsTrialPeriod, DateTimeOffset OriginalPurchaseDate, long OriginalTransactionId,
         string ProductId, string? PromotionalOfferId, DateTimeOffset PurchaseDate, int? Quantity,
         long TransactionId, long WebOrderLineItemId);

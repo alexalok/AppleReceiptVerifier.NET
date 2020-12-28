@@ -101,5 +101,15 @@ namespace AppleReceiptVerifierNET.Tests
             Assert.Equal(isValid, receipt.IsValid);
             Assert.Equal(statusCode, (KnownStatusCodes) receipt.Status);
         }
+
+        [Fact]
+        public void DeserializeResponse_InApp_With_No_Expiration_Date()
+        {
+            string json = GetVerifiedReceiptJson("Valid_Sandbox_Consumable_And_Active_Subscription_Excluding_Old_Transactions");
+
+            var receipt = AppleReceiptVerifier.DeserializeResponse(json);
+
+            Assert.Null(receipt.Receipt.InApp.First().ExpiresDate);
+        }
     }
 }
