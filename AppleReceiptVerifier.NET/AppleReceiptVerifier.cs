@@ -21,11 +21,16 @@ namespace AppleReceiptVerifierNET
 
     public class AppleReceiptVerifier : IAppleReceiptVerifier
     {
-        static readonly JsonSerializerOptions JsonSerializerOptions = new JsonSerializerOptions()
+        private static readonly JsonSerializerOptions JsonSerializerOptions = new()
         {
             PropertyNamingPolicy = new JsonSnakeCaseNamingPolicy(),
             PropertyNameCaseInsensitive = true,
-            Converters = { new QuotedConverter(), new JsonStringEnumConverter(), new TimestampToDateTimeOffsetConverter() }
+            Converters =
+            {
+                new QuotedConverter(),
+                new CustomEnumConverterFactory(),
+                new TimestampToDateTimeOffsetConverter()
+            }
         };
 
         internal readonly AppleReceiptVerifierOptions Options;

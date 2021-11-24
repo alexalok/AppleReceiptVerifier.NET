@@ -111,5 +111,16 @@ namespace AppleReceiptVerifierNET.Tests
 
             Assert.Null(receipt.Receipt.InApp.First().ExpiresDate);
         }
+
+        [Fact]
+        public void DeserializeResponse_Receipt_With_Family_Sharing()
+        {
+            string json =
+                GetVerifiedReceiptJson("Valid_Production_Family_Shared");
+
+            var receipt = AppleReceiptVerifier.DeserializeResponse(json);
+
+            Assert.Equal(InAppOwnershipType.FamilyShared, receipt.Receipt.InApp.First().InAppOwnershipType);
+        }
     }
 }
