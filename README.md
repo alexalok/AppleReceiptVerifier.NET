@@ -10,8 +10,8 @@ You can read more about receipt verification on the [official documentation webs
 The library targets .NET Standard 2.0 and .NET 5 which makes it compatible with the following .NET implementations:
 
 * .NET Framework 4.6.1 and above;
-* .NET Core 2.0 and above;
-* .NET 5;
+* .NET Core 3.1 and above;
+* .NET 5 and above;
 * and others, see [.NET implementation support](https://docs.microsoft.com/en-us/dotnet/standard/net-standard#net-implementation-support).
 
 The library is platform-agnostic and can run on **any OS** supported by the selected .NET implementation.
