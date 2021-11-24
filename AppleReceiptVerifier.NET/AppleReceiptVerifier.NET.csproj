@@ -16,9 +16,11 @@
     <Description>AppleReceiptVerifier.NET is the library used to validate purchase and subscription receipts with the Apple App Store.</Description>
     <Company>alexalok</Company>
     <Authors>alexalok</Authors>
-    <Version>0.3.1</Version>
+    <Version>0.4.0</Version>
     <PackageReleaseNotes>
-      * Made Receipt.InApp.ExpiresDate nullable.
+      * Updated packages
+      * Added forgotten InAppOwnershipType prop to InApp
+      * Fixed crash when deserializing family shared purchase (https://github.com/alexalok/AppleReceiptVerifier.NET/issues/4)
     </PackageReleaseNotes>
     <PackageTags>App Store, in-app purchase, in-app subscription, verify receipt</PackageTags>
     <RepositoryUrl>https://github.com/alexalok/AppleReceiptVerifier.NET</RepositoryUrl>
