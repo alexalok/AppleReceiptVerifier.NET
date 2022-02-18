@@ -8,6 +8,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      # Test
+      - name: Test
+        run: dotnet test --verbosity normal
       # Publish
       - name: publish on version change
         id: publish_nuget
