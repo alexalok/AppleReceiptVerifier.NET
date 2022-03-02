@@ -16,10 +16,9 @@
     <Description>AppleReceiptVerifier.NET is the library used to validate purchase and subscription receipts with the Apple App Store.</Description>
     <Company>alexalok</Company>
     <Authors>alexalok</Authors>
-    <Version>0.5.0</Version>
+    <Version>0.5.1</Version>
     <PackageReleaseNotes>
-		* Added more container registration overloads
-		* Changed license to AGPL-3.0-or-later
+		* Fix crash when trying to deserialize response containing bool not as a string
 	</PackageReleaseNotes>
     <PackageTags>App Store, in-app purchase, in-app subscription, verify receipt</PackageTags>
     <RepositoryUrl>https://github.com/alexalok/AppleReceiptVerifier.NET</RepositoryUrl>
