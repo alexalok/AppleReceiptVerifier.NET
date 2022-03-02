@@ -122,5 +122,16 @@ namespace AppleReceiptVerifierNET.Tests
 
             Assert.Equal(InAppOwnershipType.FamilyShared, receipt.Receipt.InApp.First().InAppOwnershipType);
         }
+
+        [Fact]
+        public void DeserializeResponse_Receipt_With_IsRetryable_False()
+        {
+            string json =
+                GetVerifiedReceiptJson("Invalid_Account_Deleted_Not_Retryable");
+
+            var receipt = AppleReceiptVerifier.DeserializeResponse(json);
+
+            Assert.False(receipt.IsRetryable);
+        }
     }
 }

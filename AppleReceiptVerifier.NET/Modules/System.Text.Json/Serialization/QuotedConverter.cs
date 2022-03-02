@@ -42,6 +42,16 @@ namespace System.Text.Json.Serialization
                         return (T) (object) longValue;
                     }
                 }
+
+                // "is_retryable": false - thanks, Apple! :)
+                if (reader.TokenType is JsonTokenType.True or JsonTokenType.False)
+                {
+                    if (typeToConvert == typeof(bool))
+                    {
+                        bool boolValue = reader.GetBoolean();
+                        return (T)(object)boolValue;
+                    }
+                }
                 throw new JsonException();
             }
 
