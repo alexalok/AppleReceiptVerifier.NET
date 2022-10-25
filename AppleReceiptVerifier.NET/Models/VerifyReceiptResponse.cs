@@ -16,7 +16,7 @@
     /// <param name="Receipt">A JSON representation of the receipt that was sent for verification.</param>
     /// <param name="Status">Either 0 if the receipt is valid, or a status code if there is an error. The status code reflects the status of the app receipt as a whole. 
     /// See <a href="https://developer.apple.com/documentation/appstorereceipts/status">status</a> for possible status codes and descriptions.</param>
-    public record VerifyReceiptResponse(Environment? Environment, bool? IsRetryable, string? LatestReceipt, ReceiptInfo[]? LatestReceiptInfo, PendingRenewalInfo[]? PendingRenewalInfo, Receipt Receipt, int Status)
+    public record VerifyReceiptResponse(Environment? Environment, bool? IsRetryable, string? LatestReceipt, ReceiptInfo[]? LatestReceiptInfo, PendingRenewalInfo[]? PendingRenewalInfo, Receipt Receipt, int Status, string RawJson)
     {
         /// <summary>
         /// <b>true</b> if the receipt is valid, <b>false</b> if there is an error.

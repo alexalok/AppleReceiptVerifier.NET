@@ -67,6 +67,7 @@ namespace AppleReceiptVerifierNET
                 .Content.ReadAsStringAsync()
                 .ConfigureAwait(false);
             var verifiedReceipt = DeserializeResponse(rawResp);
+            verifiedReceipt = verifiedReceipt with { RawJson = rawResp };
             return verifiedReceipt;
         }
 

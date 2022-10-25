@@ -133,5 +133,31 @@ namespace AppleReceiptVerifierNET.Tests
 
             Assert.False(receipt.IsRetryable);
         }
+        
+        [Fact]
+        public async Task Ensure_DeserializeResponse_Returns_Raw_Json()
+        {
+            string json =
+                GetVerifiedReceiptJson("Valid_Production_Family_Shared");
+            var httpHandlerMock = new Mock<HttpMessageHandler>(MockBehavior.Strict);
+            httpHandlerMock.Protected()
+                .SetupSequence<Task<HttpResponseMessage>>("SendAsync", ItExpr.IsAny<HttpRequestMessage>(),
+                    ItExpr.IsAny<CancellationToken>())
+                .ReturnsAsync(new HttpResponseMessage()
+                {
+                    Content = new StringContent(GetVerifiedReceiptJson("Valid_Production_Family_Shared"))
+                });
+            var httpClient = new HttpClient(httpHandlerMock.Object);
+            var options = new OptionsWrapper<AppleReceiptVerifierOptions>(new AppleReceiptVerifierOptions()
+            {
+                AppSecret = "test_app_password",
+                AcceptTestEnvironmentReceipts = true
+            });
+            var verifier = new AppleReceiptVerifier(options, httpClient);
+
+            var receipt = await verifier.VerifyReceiptAsync("Valid_Production_Family_Shared", true);
+            
+            Assert.Equal(json, receipt.RawJson);
+        }
     }
 }
