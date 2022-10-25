@@ -21,7 +21,12 @@
         /// <summary>
         /// <b>true</b> if the receipt is valid, <b>false</b> if there is an error.
         /// </summary>
-        public bool IsValid => (KnownStatusCodes) Status == KnownStatusCodes.Valid;
+        public bool IsValid => (KnownStatusCodes)Status == KnownStatusCodes.Valid;
+
+        /// <summary>
+        /// Raw JSON string received from Apple.
+        /// </summary>
+        public string RawJson { get; internal set; }
 
         /// <summary>
         /// Get an error description. Use if <see cref="Status"/> != 0.

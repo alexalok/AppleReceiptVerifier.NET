@@ -51,7 +51,7 @@ namespace AppleReceiptVerifierNET.Tests
 
             var receipt = AppleReceiptVerifier.DeserializeResponse(json);
 
-            Assert.Equal(KnownStatusCodes.Valid, (KnownStatusCodes) receipt.Status);
+            Assert.Equal(KnownStatusCodes.Valid, (KnownStatusCodes)receipt.Status);
             Assert.True(receipt.IsValid);
             Assert.Single(receipt.LatestReceiptInfo!);
 
@@ -75,7 +75,7 @@ namespace AppleReceiptVerifierNET.Tests
             var receipt = AppleReceiptVerifier.DeserializeResponse(json);
 
             Assert.False(receipt.IsValid);
-            Assert.Equal(KnownStatusCodes.BadAppPassword, (KnownStatusCodes) receipt.Status);
+            Assert.Equal(KnownStatusCodes.BadAppPassword, (KnownStatusCodes)receipt.Status);
         }
 
         [Fact]
@@ -86,7 +86,7 @@ namespace AppleReceiptVerifierNET.Tests
             var receipt = AppleReceiptVerifier.DeserializeResponse(json);
 
             Assert.False(receipt.IsValid);
-            Assert.Equal(KnownStatusCodes.MalformedReceiptData, (KnownStatusCodes) receipt.Status);
+            Assert.Equal(KnownStatusCodes.MalformedReceiptData, (KnownStatusCodes)receipt.Status);
         }
 
         [Theory]
@@ -99,7 +99,7 @@ namespace AppleReceiptVerifierNET.Tests
             var receipt = AppleReceiptVerifier.DeserializeResponse(json);
 
             Assert.Equal(isValid, receipt.IsValid);
-            Assert.Equal(statusCode, (KnownStatusCodes) receipt.Status);
+            Assert.Equal(statusCode, (KnownStatusCodes)receipt.Status);
         }
 
         [Fact]
@@ -132,6 +132,16 @@ namespace AppleReceiptVerifierNET.Tests
             var receipt = AppleReceiptVerifier.DeserializeResponse(json);
 
             Assert.False(receipt.IsRetryable);
+        }
+
+        [Fact]
+        public void Ensure_DeserializeResponse_Returns_Raw_Json()
+        {
+            string json = GetVerifiedReceiptJson("Valid_Production_Family_Shared");
+
+            var receipt = AppleReceiptVerifier.DeserializeResponse(json);
+
+            Assert.Equal(json, receipt.RawJson);
         }
     }
 }

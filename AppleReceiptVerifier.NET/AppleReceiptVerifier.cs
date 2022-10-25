@@ -54,7 +54,7 @@ namespace AppleReceiptVerifierNET
             var requestObj = new VerifyReceiptRequest(receiptData, Options.AppSecret, excludeOldTransactions);
             string requestJson = JsonSerializer.Serialize(requestObj);
             var verifiedReceipt = await VerifyReceiptInternalAsync(AppleReceiptVerifierOptions.ProductionEnvironmentUrl, requestJson).ConfigureAwait(false);
-            if ((KnownStatusCodes) verifiedReceipt.Status == KnownStatusCodes.ReceiptIsFromTestEnvironment && Options.AcceptTestEnvironmentReceipts)
+            if ((KnownStatusCodes)verifiedReceipt.Status == KnownStatusCodes.ReceiptIsFromTestEnvironment && Options.AcceptTestEnvironmentReceipts)
                 verifiedReceipt = await VerifyReceiptInternalAsync(AppleReceiptVerifierOptions.TestEnvironmentUrl, requestJson).ConfigureAwait(false);
             return verifiedReceipt;
         }
@@ -72,7 +72,9 @@ namespace AppleReceiptVerifierNET
 
         internal static VerifyReceiptResponse DeserializeResponse(string rawJson)
         {
-            return JsonSerializer.Deserialize<VerifyReceiptResponse>(rawJson, JsonSerializerOptions)!;
+            var resp = JsonSerializer.Deserialize<VerifyReceiptResponse>(rawJson, JsonSerializerOptions)!;
+            resp.RawJson = rawJson;
+            return resp;
         }
     }
 }
