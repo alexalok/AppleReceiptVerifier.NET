@@ -26,7 +26,7 @@
         /// <summary>
         /// Raw JSON string received from Apple.
         /// </summary>
-        public string RawJson { get; internal set; }
+        public string RawJson { get; set; }
 
         /// <summary>
         /// Get an error description. Use if <see cref="Status"/> != 0.
