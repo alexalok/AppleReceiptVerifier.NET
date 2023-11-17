@@ -1,5 +1,9 @@
-﻿# 📝 What is AppleReceiptVerifier.NET?
-[![Build status](https://img.shields.io/github/workflow/status/alexalok/AppleReceiptVerifier.NET/.NET)](https://github.com/alexalok/AppleReceiptVerifier.NET/actions?query=workflow%3A.NET)    [![Nuget package](https://img.shields.io/nuget/v/AppleReceiptVerifier.NET)](https://www.nuget.org/packages/AppleReceiptVerifier.NET/)   [![Nuget package downloads](https://img.shields.io/nuget/dt/AppleReceiptVerifier.NET?label=nuget%20downloads)](https://www.nuget.org/packages/AppleReceiptVerifier.NET/)
+# AppleReceiptVerifier.NET is obsolete
+
+This library uses [verifyReceipt](https://developer.apple.com/documentation/appstorereceipts/verifyreceipt) endpoint which had been made **obsolete** by Apple. Please refer to [#7](https://github.com/alexalok/AppleReceiptVerifier.NET/issues/7) for more info.
+ 
+ # 📝 What is AppleReceiptVerifier.NET?
+[![Build status](https://img.shields.io/github/actions/workflow/status/alexalok/AppleReceiptVerifier.NET/dotnet.yml?branch=master)](https://github.com/alexalok/AppleReceiptVerifier.NET/actions?query=workflow%3A.NET)    [![Nuget package](https://img.shields.io/nuget/v/AppleReceiptVerifier.NET)](https://www.nuget.org/packages/AppleReceiptVerifier.NET/)   [![Nuget package downloads](https://img.shields.io/nuget/dt/AppleReceiptVerifier.NET?label=nuget%20downloads)](https://www.nuget.org/packages/AppleReceiptVerifier.NET/)
 
 AppleReceiptVerifier.NET is a library used to verify the App Store receipts with the App Store verification service. 
 
