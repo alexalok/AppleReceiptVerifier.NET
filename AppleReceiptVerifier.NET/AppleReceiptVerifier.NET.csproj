@@ -1,8 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net5.0;netstandard2.0</TargetFrameworks>
     <LangVersion>9.0</LangVersion>
+    <TargetFrameworks>net6.0;netstandard2.0</TargetFrameworks>
     <Nullable>enable</Nullable>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <IncludeSymbols>true</IncludeSymbols>
@@ -16,9 +16,9 @@
     <Description>AppleReceiptVerifier.NET is the library used to validate purchase and subscription receipts with the Apple App Store.</Description>
     <Company>alexalok</Company>
     <Authors>alexalok</Authors>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
     <PackageReleaseNotes>
-		* Made RawJson property public for testing purposes.
+		* Retargeted from .NET 5 to .NET 6 due to former's EOL
 	</PackageReleaseNotes>
     <PackageTags>App Store, in-app purchase, in-app subscription, verify receipt</PackageTags>
     <RepositoryUrl>https://github.com/alexalok/AppleReceiptVerifier.NET</RepositoryUrl>
