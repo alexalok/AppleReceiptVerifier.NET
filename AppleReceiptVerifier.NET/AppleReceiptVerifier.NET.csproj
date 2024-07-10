@@ -12,13 +12,13 @@
   <PropertyGroup>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageLicenseExpression>AGPL-3.0-or-later</PackageLicenseExpression>
-    <Copyright>Copyright © alexalok 2019-2022</Copyright>
+    <Copyright>Copyright © alexalok 2019-2024</Copyright>
     <Description>AppleReceiptVerifier.NET is the library used to validate purchase and subscription receipts with the Apple App Store.</Description>
     <Company>alexalok</Company>
     <Authors>alexalok</Authors>
-    <Version>1.0.2</Version>
+    <Version>1.1.0</Version>
     <PackageReleaseNotes>
-		* Retargeted from .NET 5 to .NET 6 due to former's EOL
+		* Bumped System.Text.Json to 8.0.4 due to [CVE](https://github.com/advisories/GHSA-hh2w-p6rv-4g7w)
 	</PackageReleaseNotes>
     <PackageTags>App Store, in-app purchase, in-app subscription, verify receipt</PackageTags>
     <RepositoryUrl>https://github.com/alexalok/AppleReceiptVerifier.NET</RepositoryUrl>
