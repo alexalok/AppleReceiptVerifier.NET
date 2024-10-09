@@ -36,7 +36,7 @@
     <PackageReference Include="Microsoft.Extensions.Http" Version="6.0.0" />
     <PackageReference Include="Microsoft.Extensions.Options" Version="6.0.0" /> <!-- OptionsBuilder<TOptions>.Validate appeared in 2.2.0 -->
     <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="6.0.0" /> <!-- OptionsBuilderConfigurationExtensions.Bind appeared in 2.1.0 -->
-    <PackageReference Include="System.Text.Json" Version="8.0.4" /> <!-- Lower versions throw NotSupportedException for records -->
+    <PackageReference Include="System.Text.Json" Version="8.0.5" /> <!-- Lower versions throw NotSupportedException for records -->
   </ItemGroup>
 
   
